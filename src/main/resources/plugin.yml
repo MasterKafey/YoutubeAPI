@@ -1,0 +1,12 @@
+name: YoutubeAPI
+version: ${project.version}
+main: masterkafei.youtubeapi.YoutubeAPI
+authors: [MasterKafei]
+description: Retrieve youtube data
+website: dyosis.com
+commands:
+  youtube-api:
+    description: Main command
+    usage:  /youtube-api <action>
+    permission: youtube-api
+    permission-message: You don't have permission to execute this command

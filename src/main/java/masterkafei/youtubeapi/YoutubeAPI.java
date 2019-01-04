@@ -102,6 +102,9 @@ public final class YoutubeAPI extends JavaPlugin {
                     configuration.setConfiguration(Configuration.YOUTUBE_API_KEY_CONFIGURATION_KEY, args[1]);
                     saveConfig();
                     this.api.setKey(args[1]);
+                    if(timer.stop()) {
+                        timer.start(getTimerTask());
+                    }
                     sender.sendMessage(ChatColor.GREEN + "Key successfully updated !");
                     return true;
             }
@@ -123,7 +126,6 @@ public final class YoutubeAPI extends JavaPlugin {
                     timer.stop();
                 }
 
-                System.out.println(subs);
                 try {
                     Bukkit.getScoreboardManager().getMainScoreboard().getObjective("CompteurAbos").getScore("#AbonnesCurrent").setScore(subs);
                 } catch (Exception exception) {

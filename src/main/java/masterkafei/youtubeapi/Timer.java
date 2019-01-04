@@ -6,7 +6,7 @@ public class Timer {
 
     private int milliseconds;
     private java.util.Timer timer;
-
+    private TimerTask task;
     public Timer(int milliseconds) {
 
         this.milliseconds = milliseconds;
@@ -24,6 +24,7 @@ public class Timer {
         if(this.timer != null) {
             return false;
         }
+        this.task = task;
         this.timer = new java.util.Timer();
         this.timer.schedule(task, 0, this.milliseconds);
         return true;
@@ -33,6 +34,7 @@ public class Timer {
         if(this.timer == null) {
             return false;
         }
+        this.task.cancel();
         this.timer.cancel();
         this.timer.purge();
         this.timer = null;
